@@ -5,9 +5,11 @@ export default class FormController {
     this.prepareEndpoints();
   }
 
-  prepareEndpoints() {
-    this.server.put('/saveForm', (req, res) => {
-      console.log(req, res);
+   prepareEndpoints() {
+    this.server.put('/saveForm', async (req, res) => {
+    const result = await this.formService.saveForm(req.body);
+    console.log(result);
+    res.status(result.status).json(result.body);
     });
   }
 }

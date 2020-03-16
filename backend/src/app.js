@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import mongoose from 'mongoose';
 
 import FormRepository from './Repository/FormRepository';
@@ -9,6 +10,7 @@ export default class App {
   constructor() {
     mongoose.connect('mongodb://localhost:27018/brainHub', { useUnifiedTopology: true, useNewUrlParser: true });
     this.server = express();
+    this.server.use(cors());
     this.server.use(express.logger('dev'));
     this.server.use(express.bodyParser());
 
@@ -17,7 +19,7 @@ export default class App {
     this.formController = new FormController(this.formService, this.server);
 
     this.server.use((_, res) => {
-      res.status(404).json({ error: 'Resource not found.' });
+      res.status(404).json({ message: 'Resource not found.' });
     });
   }
 

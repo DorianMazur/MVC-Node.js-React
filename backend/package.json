@@ -7,11 +7,13 @@
         "build": "babel src --out-dir dist",
         "lint": "eslint .",
         "serve": "node dist/index.js",
-        "test": "jest",
+        "test": "jest test --ci --detectOpenHandles --debug --coverage",
         "test-env": "docker-compose -f docker-compose.yaml up",
         "test-env-clear": "docker-compose -f docker-compose.yaml down"
     },
     "dependencies": {
+        "@babel/runtime": "^7.8.7",
+        "cors": "^2.8.5",
         "express": "3.2.6",
         "hjs": "0.0.4",
         "less-middleware": "0.1.12",
@@ -22,12 +24,14 @@
         "@babel/cli": "^7.8.4",
         "@babel/core": "^7.8.7",
         "@babel/node": "^7.8.7",
+        "@babel/plugin-transform-runtime": "^7.8.3",
         "@babel/preset-env": "^7.8.7",
         "eslint": "^6.8.0",
         "eslint-config-airbnb-base": "^14.1.0",
         "eslint-config-prettier": "^6.10.0",
         "eslint-plugin-import": "^2.20.1",
         "eslint-plugin-prettier": "^3.1.2",
+        "jest": "^25.1.0",
         "nodemon": "^2.0.2",
         "prettier": "^1.19.1"
     }

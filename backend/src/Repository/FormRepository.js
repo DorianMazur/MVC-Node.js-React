@@ -15,10 +15,6 @@ export default class FormRepository {
     return this.mongoose.model('Forms', formSchema);
   }
 
-  async find(id) {
-    return this.model.find({ id });
-  }
-
   async create(object) {
     return this.model.create(object);
   }

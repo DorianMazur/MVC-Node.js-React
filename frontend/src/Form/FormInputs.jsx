@@ -26,8 +26,24 @@ class FormInputs extends React.Component {
           value={firstName}
           onChange={this.handleChange}
         />
-        <Form.Input fluid icon="user outline" iconPosition="left" placeholder="Last Name" value={lastName} />
-        <Form.Input fluid icon="mail" iconPosition="left" placeholder="Email" value={email} />
+        <Form.Input
+          id="lastName"
+          fluid
+          icon="user outline"
+          iconPosition="left"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={this.handleChange}
+        />
+        <Form.Input
+          id="email"
+          fluid
+          icon="mail"
+          iconPosition="left"
+          placeholder="Email"
+          value={email}
+          onChange={this.handleChange}
+        />
       </Segment>
     );
   }
