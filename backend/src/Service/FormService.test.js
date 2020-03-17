@@ -1,7 +1,8 @@
 import FormService from './FormService';
 
 describe('FormService', () => {
-  let service, repository;
+  let service;
+  let repository;
 
   beforeEach(async () => {
     repository = {
@@ -25,9 +26,17 @@ describe('FormService', () => {
     expect(result).toEqual({ status: 404, body: { message: 'Email is wrong!' } });
   });
 
-  it('should throw error when random error ocurred', async () => {
+  it('should throw error when database is out of order', async () => {
     repository.create.mockReturnValue(null);
     const result = await service.saveForm({ firstName: 'Test', lastName: 'Test', email: 'Test@test.pl' });
     expect(result).toEqual({ status: 404, body: { message: 'Error!' } });
+  });
+
+  it('should properly save', async () => {
+    const testObject = { firstName: 'Test', lastName: 'Test', email: 'Test@test.pl' };
+    repository.create.mockReturnValue(testObject);
+    const result = await service.saveForm(testObject);
+    expect(repository.create.mock.calls[0][0]).toEqual(testObject);
+    expect(result).toEqual({ status: 200, body: { message: 'Registered!' } });
   });
 });

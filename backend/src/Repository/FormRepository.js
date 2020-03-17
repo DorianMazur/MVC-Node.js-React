@@ -16,6 +16,9 @@ export default class FormRepository {
   }
 
   async create(object) {
-    return this.model.create(object);
+    return this.model.create(object).catch(err => {
+      console.error(err);
+      return null;
+    });
   }
 }

@@ -3,5 +3,8 @@
   "plugins": ["prettier"],
   "rules": {
     "no-console": "off"
+  },
+  "env": {
+    "jest": true
   }
 }
