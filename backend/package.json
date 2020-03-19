@@ -14,7 +14,7 @@
     "dependencies": {
         "@babel/runtime": "^7.8.7",
         "cors": "^2.8.5",
-        "express": "3.2.6",
+        "express": "3.11.0",
         "hjs": "0.0.4",
         "less-middleware": "0.1.12",
         "mongoose": "^5.9.4",
